@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbconsultorioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="citas">
+    <Key>
+      <PropertyRef Name="citaid" />
+    </Key>
+    <Property Name="citaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pacienteid" Type="int" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="dentistaid" Type="int" Nullable="false" />
+    <Property Name="motivoid" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="dentista">
+    <Key>
+      <PropertyRef Name="dentistaid" />
+    </Key>
+    <Property Name="dentistaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="especialidad" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="estado" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="motivo">
+    <Key>
+      <PropertyRef Name="motivoid" />
+    </Key>
+    <Property Name="motivoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="motivo" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="pacientes">
+    <Key>
+      <PropertyRef Name="pacienteid" />
+    </Key>
+    <Property Name="pacienteid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+    <Property Name="alergias" Type="varchar" MaxLength="255" />
+    <Property Name="historialdental" Type="text" />
+    <Property Name="medicamentos" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__citas__dentistai__5812160E">
+    <End Role="dentista" Type="Self.dentista" Multiplicity="1" />
+    <End Role="citas" Type="Self.citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dentista">
+        <PropertyRef Name="dentistaid" />
+      </Principal>
+      <Dependent Role="citas">
+        <PropertyRef Name="dentistaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__citas__pacientei__571DF1D5">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="citas" Type="Self.citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="pacienteid" />
+      </Principal>
+      <Dependent Role="citas">
+        <PropertyRef Name="pacienteid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="procesarcitas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dbconsultorioModelStoreContainer">
+    <EntitySet Name="citas" EntityType="Self.citas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dentista" EntityType="Self.dentista" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motivo" EntityType="Self.motivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pacientes" EntityType="Self.pacientes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__citas__dentistai__5812160E" Association="Self.FK__citas__dentistai__5812160E">
+      <End Role="dentista" EntitySet="dentista" />
+      <End Role="citas" EntitySet="citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__citas__pacientei__571DF1D5" Association="Self.FK__citas__pacientei__571DF1D5">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="citas" EntitySet="citas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

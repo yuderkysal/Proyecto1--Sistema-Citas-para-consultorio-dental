@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCFD0732-1F11-4404-B6CE-EB1E139D81C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ConsultorioDental</RootNamespace>
+    <AssemblyName>ConsultorioDental</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Db\cita.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\dbdental.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbdental.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\dbdental.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\dbdental.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbdental.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Db\dentista.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\motivo.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\ObtenerCitas_Result.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\paciente.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\procesarcitas_Result.cs">
+      <DependentUpon>dbdental.tt</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\menucitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\menucitas.Designer.cs">
+      <DependentUpon>menucitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\menudentista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\menudentista.Designer.cs">
+      <DependentUpon>menudentista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\menumotivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\menumotivo.Designer.cs">
+      <DependentUpon>menumotivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\menupacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\menupacientes.Designer.cs">
+      <DependentUpon>menupacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\menuprincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\menuprincipal.Designer.cs">
+      <DependentUpon>menuprincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\actualizarcitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\actualizarcitas.Designer.cs">
+      <DependentUpon>actualizarcitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\actualizardentista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\actualizardentista.Designer.cs">
+      <DependentUpon>actualizardentista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\actualizarmotivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\actualizarmotivo.Designer.cs">
+      <DependentUpon>actualizarmotivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\actualizarpacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\actualizarpacientes.Designer.cs">
+      <DependentUpon>actualizarpacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\añadirdatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\añadirdatos.Designer.cs">
+      <DependentUpon>añadirdatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\registrocitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\registrocitas.Designer.cs">
+      <DependentUpon>registrocitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\registrodentista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\registrodentista.Designer.cs">
+      <DependentUpon>registrodentista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\registromotivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\registromotivo.Designer.cs">
+      <DependentUpon>registromotivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\registropacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\registropacientes.Designer.cs">
+      <DependentUpon>registropacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formularios\menucitas.resx">
+      <DependentUpon>menucitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\menudentista.resx">
+      <DependentUpon>menudentista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\menumotivo.resx">
+      <DependentUpon>menumotivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\menupacientes.resx">
+      <DependentUpon>menupacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\menuprincipal.resx">
+      <DependentUpon>menuprincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\actualizarcitas.resx">
+      <DependentUpon>actualizarcitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\actualizardentista.resx">
+      <DependentUpon>actualizardentista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\actualizarmotivo.resx">
+      <DependentUpon>actualizarmotivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\actualizarpacientes.resx">
+      <DependentUpon>actualizarpacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\añadirdatos.resx">
+      <DependentUpon>añadirdatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\registrocitas.resx">
+      <DependentUpon>registrocitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\registrodentista.resx">
+      <DependentUpon>registrodentista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\registromotivo.resx">
+      <DependentUpon>registromotivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\registropacientes.resx">
+      <DependentUpon>registropacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Db\dbdental.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbdental.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Db\dbdental.edmx.diagram">
+      <DependentUpon>dbdental.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-impacted-wisdom-tooth-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-layout-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dentist-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-patient-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-prescription-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-appointment-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-info-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-overview-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Db\dbdental.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbdental.edmx</DependentUpon>
+      <LastGenOutput>dbdental.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\dbdental.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbdental.edmx</DependentUpon>
+      <LastGenOutput>dbdental.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\dentist.png" />
+    <None Include="Resources\icons8-power-off-button-26.png" />
+    <None Include="Resources\icons8-phone-26.png" />
+    <None Include="Resources\icons8-home-25.png" />
+    <None Include="Resources\sticky-note-154504_640.png" />
+    <None Include="Resources\istockphoto-2204476196-612x612.jpg" />
+    <None Include="Resources\O69AM30-scaled.jpg" />
+    <None Include="Resources\icons8-pencil-20.png" />
+    <None Include="Resources\icons8-delete-20.png" />
+    <None Include="Resources\icons8-refresh-26.png" />
+    <None Include="Resources\icons8-search-26.png" />
+    <None Include="Resources\icons8-dentist-time-26.png" />
+    <None Include="Resources\icons8-prescription-261.png" />
+    <None Include="Resources\icons8-health-checkup-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

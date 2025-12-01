@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbconsultorioModelStoreContainer" CdmEntityContainer="dbconsultorioEntities1">
+    <EntitySetMapping Name="motivoes">
+      <EntityTypeMapping TypeName="dbconsultorioModel.motivo">
+        <MappingFragment StoreEntitySet="motivo">
+          <ScalarProperty Name="motivoid" ColumnName="motivoid" />
+          <ScalarProperty Name="motivo1" ColumnName="motivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacientes">
+      <EntityTypeMapping TypeName="dbconsultorioModel.paciente">
+        <MappingFragment StoreEntitySet="pacientes">
+          <ScalarProperty Name="pacienteid" ColumnName="pacienteid" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+          <ScalarProperty Name="alergias" ColumnName="alergias" />
+          <ScalarProperty Name="historialdental" ColumnName="historialdental" />
+          <ScalarProperty Name="medicamentos" ColumnName="medicamentos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="procesarcitas" FunctionName="dbconsultorioModel.Store.procesarcitas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbconsultorioModel.procesarcitas_Result">
+          <ScalarProperty Name="citaid" ColumnName="citaid" />
+          <ScalarProperty Name="pacienteid" ColumnName="pacienteid" />
+          <ScalarProperty Name="dentistaid" ColumnName="dentistaid" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="motivoid" ColumnName="motivoid" />
+          <ScalarProperty Name="DiasRestantes" ColumnName="DiasRestantes" />
+          <ScalarProperty Name="HorasRestantes" ColumnName="HorasRestantes" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="citas">
+      <EntityTypeMapping TypeName="dbconsultorioModel.cita">
+        <MappingFragment StoreEntitySet="citas">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="motivoid" ColumnName="motivoid" />
+          <ScalarProperty Name="dentistaid" ColumnName="dentistaid" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="pacienteid" ColumnName="pacienteid" />
+          <ScalarProperty Name="citaid" ColumnName="citaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dentistas">
+      <EntityTypeMapping TypeName="dbconsultorioModel.dentista">
+        <MappingFragment StoreEntitySet="dentista">
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="dentistaid" ColumnName="dentistaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
